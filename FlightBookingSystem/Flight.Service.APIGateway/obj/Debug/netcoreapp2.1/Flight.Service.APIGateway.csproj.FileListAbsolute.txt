@@ -1,0 +1,17 @@
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\bin\Debug\netcoreapp2.1\Configuration.json
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\bin\Debug\netcoreapp2.1\Flight.Service.APIGateway.deps.json
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\bin\Debug\netcoreapp2.1\Flight.Service.APIGateway.runtimeconfig.json
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\bin\Debug\netcoreapp2.1\Flight.Service.APIGateway.runtimeconfig.dev.json
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\bin\Debug\netcoreapp2.1\Flight.Service.APIGateway.dll
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\bin\Debug\netcoreapp2.1\Flight.Service.APIGateway.pdb
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.csproj.AssemblyReference.cache
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.AssemblyInfoInputs.cache
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.AssemblyInfo.cs
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.RazorAssemblyInfo.cache
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.RazorAssemblyInfo.cs
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.RazorTargetAssemblyInfo.cache
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.dll
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.pdb
+C:\Users\cogdotnet43\source\repos\FlightBookingSystem\Flight.Service.APIGateway\obj\Debug\netcoreapp2.1\Flight.Service.APIGateway.genruntimeconfig.cache
