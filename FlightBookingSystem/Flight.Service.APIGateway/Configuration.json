@@ -1,12 +1,12 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/api/booking",
+      "DownstreamPathTemplate": "/api/booking/book",
       "DownstreamScheme": "http",
       "DownstreamHost": "localhost",
       "DownstreamPort": 5001,
-      "UpstreamPathTemplate": "/book",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/booked",
+      "UpstreamHttpMethod": [ "Post" ]
     },
 
     {
@@ -40,6 +40,14 @@
       "DownstreamPort": 5006,
       "DownstreamHost": "localhost",
       "UpstreamPathTemplate": "/logged",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/userlogin/new",
+      "DownstreamScheme": "http",
+      "DownstreamPort": 5006,
+      "DownstreamHost": "localhost",
+      "UpstreamPathTemplate": "/newuser",
       "UpstreamHttpMethod": [ "Post" ]
     }
   ],

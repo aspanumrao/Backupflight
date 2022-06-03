@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Flight.Service.BookingAPI.Model;
+using Flight.Service.BookingAPI.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,36 +12,32 @@ namespace Flight.Service.BookingAPI.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        // GET api/values
+        private readonly IBookingRepository _ibookingrepository;
+        public BookingController(IBookingRepository bookingRepository)
+        {
+            _ibookingrepository = bookingRepository;
+        }
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "BookingController", "BookingController" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+    
+         [HttpPost]
+         [Route("book")]
+        public void BookingFlight([FromBody] BookingTbl bookingTbl)
         {
-            return "value";
+            _ibookingrepository.TicketBooking(bookingTbl);
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("cancelled")]
+        public string TicketCancellation( string pnrnumber)
         {
+            return _ibookingrepository.TicketCancellation(pnrnumber);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

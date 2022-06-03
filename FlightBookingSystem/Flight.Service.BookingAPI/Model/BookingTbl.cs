@@ -9,33 +9,33 @@ namespace Flight.Service.BookingAPI.Model
 {
     public class BookingTbl
     {
+        [Key]
         public int BookId { get; set; }
+        [Required]
         public string FlightNo { get; set; }
+        public string PNRNo { get; set; }
+        public bool IsPNRNoActive { get; set; }
+        [Required]
         public string EmailId { get; set; }
         public string OptForMeal { get; set; }
-        public int NoOfSeat { get; set; }
-        public int SelectSeatNumber  { get; set; }
+        [Required]
+        public int NoOfSeat { get; set; }        
+        [Required]
         public string BookingFrom { get; set; }
+        [Required]
         public string BookingTo { get; set; }
+        [Required]
         public  DateTime BookingDepartureDate { get; set; }
+        [Required]
         public DateTime BookingReturnDate { get; set; }
+        [Required]
         public  bool IsBookingOneWay { get; set; }
+        [Required]
         public bool IsBookingRoundWay { get; set; }
-        IList<Passenger>listpassengers { get; set; }
+       public List<PassengerTbl> listpassengers { get; set; }
 
 
     }
-    public class Passenger
-    {
-        [Key]
-        public int PassengerId { get; set; }
-        public string PassengerFirstName { get; set; }
-        public string PassengerMiddle { get; set; }
-        public string PassengerLastName { get; set; }
-        public int Age { get; set; }
-        [ForeignKey("BookingTbl")]
-        public int BookId { get; set; }
-
-    }
+    
    
 }

@@ -8,6 +8,8 @@ namespace Flight.Service.BookingAPI.Repository
 {
     public interface IBookingRepository
     {
-       IEnumerable<BookingTbl> BookingTicket( BookingTbl bookingtbl);
+       
+        void TicketBooking( BookingTbl bookingtbl);
+        string TicketCancellation(string pnrno);
     }
 }
