@@ -37,23 +37,48 @@ namespace Flight.Service.BookingAPI.Repository
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        public string TicketCancellation(string pnrno)
+        public string TicketCancellation(string pnrnumber)
         {
 
-            if (pnrno != null)
+            if (pnrnumber != null)
             {
                 
-              BookingTbl objbooking = bookingDbContext.bookingTbls.Where(a=>a.PNRNo==pnrno).FirstOrDefault();
-                    if (objbooking.PNRNo!=null&&objbooking.IsPNRNoActive==true)
+              BookingTbl objbooking = bookingDbContext.bookingTbls.Where(a=>a.PNRNo== pnrnumber).FirstOrDefault();
+                if (objbooking != null)
+                {
+                    if (objbooking.PNRNo != null && objbooking.IsPNRNoActive == true)
                     {
-                    objbooking.IsPNRNoActive = false;
-                    bookingDbContext.SaveChanges();
-                        return "Ticket has been Cancelled :" + pnrno;
+                        objbooking.IsPNRNoActive = false;
+                        bookingDbContext.SaveChanges();
+                        return "Ticket has been Cancelled :" + pnrnumber;
                     }
-                    
+                }
                 return "Please Provide the correct  pnrno";
             }
             return "Please Provide the pnrno";
+        }
+
+        public IEnumerable<BookingTbl> BookingHistory(string email)
+        {
+            List<BookingTbl> objlistbooking = new List<BookingTbl>();
+            
+           if (email != null)
+            {
+                var availableflights = (from res in bookingDbContext.bookingTbls
+                                        where (res.EmailId == email)
+                                        select new { res.FlightNo, res.PNRNo, res.BookingDepartureDate, res.BookingFrom }
+                                    );
+                foreach (var item in availableflights)
+                {
+                    BookingTbl objtbl = new BookingTbl();
+                    objtbl.FlightNo = item.FlightNo;
+                    objtbl.PNRNo = item.PNRNo;
+                    objtbl.BookingDepartureDate = item.BookingDepartureDate;
+                    objtbl.BookingFrom = item.BookingFrom;
+                    objlistbooking.Add(objtbl);
+                }
+            }
+            return objlistbooking;
         }
     }
 }

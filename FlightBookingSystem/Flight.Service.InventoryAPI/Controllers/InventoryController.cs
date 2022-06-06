@@ -37,11 +37,17 @@ namespace Flight.Service.InventoryAPI.Controllers
             _invRepository.BlockAirline(id);
           
         }
-        
 
-       
-       
+        [HttpPost]
+        [Route("flightschedule")]
+        public FlightSearchTbl FlightScheduleUpdate(FlightSearchTbl objflightserchalter)
+        {
 
-       
+            return _invRepository.ManageSchedule(objflightserchalter);
+
+        }
+
+
+
     }
 }

@@ -33,9 +33,16 @@ namespace Flight.Service.BookingAPI.Controllers
 
         [HttpPost]
         [Route("cancelled")]
-        public string TicketCancellation( string pnrnumber)
+        public string TicketCancellation(string pnrno)
         {
-            return _ibookingrepository.TicketCancellation(pnrnumber);
+            return _ibookingrepository.TicketCancellation(pnrno);
+        }
+
+        [HttpPost]
+        [Route("history")]
+        public IEnumerable<BookingTbl> BookingHistory(string emailid)
+        {
+            return _ibookingrepository.BookingHistory(emailid);
         }
 
 

@@ -34,6 +34,16 @@ namespace Flight.Service.InventoryAPI.InvRepository
                 flightSearchDbContext.SaveChanges();
             }
         }
+
+        public FlightSearchTbl ManageSchedule(FlightSearchTbl alterobjflightsearch)
+        {
+            var objflight = flightSearchDbContext.flightSearchTbls.Attach(alterobjflightsearch);
+            objflight.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            flightSearchDbContext.SaveChanges();
+
+
+            return alterobjflightsearch;
+        }
         //end 
     }
 }

@@ -10,6 +10,8 @@ namespace Flight.Service.BookingAPI.Repository
     {
        
         void TicketBooking( BookingTbl bookingtbl);
-        string TicketCancellation(string pnrno);
+        string TicketCancellation(string pnrnumber);
+        IEnumerable<BookingTbl> BookingHistory(string email);
+        
     }
 }

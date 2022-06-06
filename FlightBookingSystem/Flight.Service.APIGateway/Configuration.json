@@ -8,14 +8,29 @@
       "UpstreamPathTemplate": "/booked",
       "UpstreamHttpMethod": [ "Post" ]
     },
-
     {
-      "DownstreamPathTemplate": "/api/flightsearch/flightsearch",
+      "DownstreamPathTemplate": "/api/booking/cancelled",
       "DownstreamScheme": "http",
-      "DownstreamPort": 5002,
       "DownstreamHost": "localhost",
-      "UpstreamPathTemplate": "/allflight",
+      "DownstreamPort": 5001,
+      "UpstreamPathTemplate": "/cancelledticket",
       "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking/history",
+      "DownstreamScheme": "http",
+      "DownstreamHost": "localhost",
+      "DownstreamPort": 5001,
+      "UpstreamPathTemplate": "/allbookedticket",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamHost": "localhost",
+      "DownstreamPathTemplate": "/api/flightsearch/flightsearch",
+      "DownstreamPort": 5002,
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "Post" ],
+      "UpstreamPathTemplate": "/allflight"
     },
 
     {
