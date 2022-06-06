@@ -20,5 +20,6 @@ namespace Flight.Service.FlightSearchAPI.Model
         public bool RoundWay { get; set; }
         public bool IsFlightBlock { get; set; }
         public double Price { get; set; }
+        public int AvailableSheet { get; set; }
     }
 }

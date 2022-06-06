@@ -4,14 +4,16 @@ using Flight.Service.FlightSearchAPI.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Flight.Service.FlightSearchAPI.Migrations
 {
     [DbContext(typeof(FlightSearchDbContext))]
-    partial class FlightSearchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220606091602_flightsearchfinal")]
+    partial class flightsearchfinal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
