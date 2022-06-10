@@ -1,0 +1,24 @@
+<div class="container py-5">  
+    <h3 class="text-center text-uppercase">List of All Flights</h3>  
+    <table class="table table-bordered table-striped">  
+        <thead>  
+            <tr class="text-center text-uppercase">  
+                <th>FlightNo</th>  
+                <th>FlightLogo</th>  
+                <th>From</th> 
+                <th>To</th> 
+                <th>Action</th>              
+              </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let flight of newinventoryflights">  
+            <td>{{flight.flightNo}}</td>  
+            <td>{{flight.flightLogo}}</td>  
+            <td>{{flight.from}}</td> 
+            <td>{{flight.to}}</td> 
+            <td><button  (click)="Block(flight.flightId)">Block</button></td>  
+            <td><button  (click)="Modify(flight)">schedule modification</button></td> 
+          </tr>  
+        </tbody>  
+      </table>  
+    </div>  

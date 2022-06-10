@@ -1,0 +1,57 @@
+<p>userflightsearch works!</p>
+<form #f="ngForm" (submit)="SearchUserFlight(f.value)" >
+<input type="hidden" name="FlightId" placeholder="flightId" [value]="service.formdata.FlightId">
+<div class="mb-3"> 
+<input type="text" name="From" #From="ngModel" placeholder="from" [(ngModel)]="service.formdata.From">
+</div>
+<div class="mb-3"> 
+<input type="text" name="To" #To="ngModel" placeholder="to" [(ngModel)]="service.formdata.To">
+</div>
+<div class="mb-3">
+<label>Departure Date:
+<input type="datetime-local" name="DepartureDate" #DepartureDate="ngModel" placeholder="departureDate" [(ngModel)]="service.formdata.DepartureDate">
+</label>
+<label>Return Date:
+<input type="datetime-local" name="ReturnDate" #ReturnDate="ngModel" placeholder="returnDate" [(ngModel)]="service.formdata.ReturnDate">
+</label>
+</div>
+<div class="form-group">
+<div>
+<input type="radio" name="OneWay" #OneWay="ngModel" value="true" [(ngModel)]="service.formdata.OneWay">
+<label>One Way Trip</label>
+</div>
+<div>
+<input type="radio" name="RoundWay" #RoundWay="ngModel" value="true" [(ngModel)]="service.formdata.RoundWay">
+<label>Round Way Trip</label>
+</div>
+</div>
+
+<diV class="form-group">
+  <input type="submit" value="Search">
+</diV>
+</form>
+
+<div class="container py-5">  
+    <h3 class="text-center text-uppercase">List of All Flights as per user search criteria</h3>  
+    <table class="table table-bordered table-striped">  
+        <thead>  
+            <tr class="text-center text-uppercase">  
+                <th>FlightNo</th>  
+                <th>FlightLogo</th>  
+                <th>From</th> 
+                <th>To</th> 
+                <th>Action</th>              
+              </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let flight of userflightsearchlist">  
+            <td>{{flight.flightNo}}</td>  
+            <td>{{flight.flightLogo}}</td>  
+            <td>{{flight.from}}</td> 
+            <td>{{flight.to}}</td> 
+            <td><button >Book</button></td>  
+           
+          </tr>  
+        </tbody>  
+      </table>  
+    </div> 

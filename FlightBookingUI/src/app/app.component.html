@@ -1,2 +1,20 @@
-<h1>Flight Booking </h1>
-<app-login></app-login>
+<h1>Flight Booking System </h1>
+<!-- <app-register></app-register>  -->
+<div class="container">
+<ul>
+    <li role="presentation" routerLinkActive="active">
+     <a routerLink="/login">Login</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+        <a routerLink="/register">RegisterFlight-Admin</a>
+   </li>
+   <li role="presentation" routerLinkActive="active">
+    <a routerLink="/adminflight-inv">GetAllActiveFlight-Admin</a>
+   </li>
+   <li role="presentation" routerLinkActive="active">
+    <a routerLink="/userflightsearch">GetAllFlightas per user serach criteria</a>
+   </li>
+
+</ul>
+<router-outlet></router-outlet>
+</div>

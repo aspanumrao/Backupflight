@@ -1,0 +1,44 @@
+<p>register works!</p>
+<form #f="ngForm" (submit)="Register(f.value)" >
+  <input type="hidden" name="FlightId" placeholder="flightId" [value]="service.formdata.FlightId">
+<div class="form-group" >
+
+<input type="text" name="FlightNo" #FlightNo="ngModel" placeholder="flightnumber" [(ngModel)]="service.formdata.FlightNo">
+<input type="text" name="FlightLogo" #FlightLogo="ngModel" placeholder="FlightLogo" [(ngModel)]="service.formdata.FlightLogo">
+</div>
+<div class="form-row">
+  
+<input type="text" name="From" #From="ngModel" placeholder="from" [(ngModel)]="service.formdata.From">
+<input type="text" name="To" #To="ngModel" placeholder="to" [(ngModel)]="service.formdata.To">
+</div>
+<div class="form-group">
+<label>Departure Date:
+<input type="datetime-local" name="DepartureDate" #DepartureDate="ngModel" placeholder="departureDate" [(ngModel)]="service.formdata.DepartureDate">
+</label>
+<label>Return Date:
+<input type="datetime-local" name="ReturnDate" #ReturnDate="ngModel" placeholder="returnDate" [(ngModel)]="service.formdata.ReturnDate">
+</label>
+</div>
+<div class="form-group">
+<div>
+<input type="radio" name="OneWay" #OneWay="ngModel" value="true" [(ngModel)]="service.formdata.OneWay">
+<label>One Way Trip</label>
+</div>
+<div>
+<input type="radio" name="RoundWay" #RoundWay="ngModel" value="true" [(ngModel)]="service.formdata.RoundWay">
+<label>Round Way Trip</label>
+</div>
+</div>
+<div class="form-group">
+  <label> Price
+<input type="text" name="Price" #Price="ngModel" placeholder="price" [(ngModel)]="service.formdata.Price">
+</label>
+<label> Available seat:
+<input type="text" name="AvailableSheet" #AvailableSheet="ngModel" placeholder="availableSheet" [(ngModel)]="service.formdata.AvailableSheet">
+</label>
+</div>
+<diV class="form-group">
+  <input type="submit" value="RegisterFlight">
+</diV>
+
+</form>

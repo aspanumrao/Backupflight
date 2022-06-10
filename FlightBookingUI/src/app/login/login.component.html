@@ -1,8 +1,9 @@
 <p>Login Page </p>
-<form>
+<form #f="ngForm" (submit)="LoginSubmit(f.value)">
+
 <div>
-    <input type="text" name="username" placeholder="User">
-    <input type="text" name="Password" placeholder="XXXXXXX">
+    <input type="text" name="username"   placeholder="User" [(ngModel)]="service.formdata.username">
+    <input type="text" name="password"  placeholder="XXXXXXX" [(ngModel)]="service.formdata.password">
     <input type="submit" value="Login">
 </div>
 </form>
