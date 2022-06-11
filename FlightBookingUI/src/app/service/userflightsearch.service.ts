@@ -6,7 +6,7 @@ import { Register } from '../Models/Register';
   providedIn: 'root'
 })
 export class UserflightsearchService {
-  readonly baseUrl="http://localhost:18227/api/flightsearch/flightsearch";
+  readonly baseUrl="http://localhost:5000/allflight";
   constructor(private http:HttpClient) { }
   formdata:Register=new Register(); 
   postuserflightsearch(){

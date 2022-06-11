@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminflightInvComponent } from './adminflight-inv/adminflight-inv.component';
 import { UserflightsearchComponent } from './userflightsearch/userflightsearch.component';
+import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { UserflightsearchComponent } from './userflightsearch/userflightsearch.c
     RegisterComponent,
     AdminflightInvComponent,
     UserflightsearchComponent,
+    TicketBookingComponent,
 
   ],
   imports: [

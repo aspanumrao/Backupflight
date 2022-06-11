@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminflightInvComponent } from './adminflight-inv/adminflight-inv.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
 import { UserflightsearchComponent } from './userflightsearch/userflightsearch.component';
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path:"userflightsearch",
     component:UserflightsearchComponent
+
+  },
+  {
+    path:"ticket-booking",
+    component:TicketBookingComponent
 
   }
 
