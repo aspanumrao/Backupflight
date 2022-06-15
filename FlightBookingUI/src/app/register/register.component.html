@@ -1,19 +1,45 @@
 <p>register works!</p>
-<form #f="ngForm" (submit)="Register(f.value)" >
+<form #f="ngForm" (submit)="Register(f.value)" novalidate autocomplete="off" >
   <input type="hidden" name="FlightId" placeholder="flightId" [value]="service.formdata.FlightId">
 <div class="form-group" >
 
-<input type="text" name="FlightNo" #FlightNo="ngModel" placeholder="flightnumber" [(ngModel)]="service.formdata.FlightNo">
-<input type="text" name="FlightLogo" #FlightLogo="ngModel" placeholder="FlightLogo" [(ngModel)]="service.formdata.FlightLogo">
+<input type="text" name="FlightNo" #FlightNo="ngModel" placeholder="flightnumber"
+ [(ngModel)]="service.formdata.FlightNo"
+ />
+ <!-- <div *ngIf="isSubmitted && fk.FlightNo.errors" class="invalid-feedback">
+  <div *ngIf="fk.FlightNo.errors.required">flight  number  is required</div>
+</div> -->
+<input type="text" name="FlightLogo" #FlightLogo="ngModel" placeholder="FlightLogo"
+ [(ngModel)]="service.formdata.FlightLogo"
+  />
+ <!-- <div *ngIf="isSubmitted && fk.FlightLogo.errors" class="invalid-feedback">
+  <div *ngIf="fk.FlightLogo.errors.required">flight  logo  is required</div>
+</div> -->
 </div>
 <div class="form-row">
   
-<input type="text" name="From" #From="ngModel" placeholder="from" [(ngModel)]="service.formdata.From">
-<input type="text" name="To" #To="ngModel" placeholder="to" [(ngModel)]="service.formdata.To">
+<input type="text" name="From" #From="ngModel" placeholder="from" 
+[(ngModel)]="service.formdata.From"
+ />
+<!-- <div *ngIf="isSubmitted && fk.From.errors" class="invalid-feedback">
+  <div *ngIf="fk.From.errors.required">From  is required</div>
+</div> -->
+
+<input type="text" name="To" #To="ngModel" placeholder="to"
+ [(ngModel)]="service.formdata.To"
+ />
+ <!-- <div *ngIf="isSubmitted && fk.To.errors" class="invalid-feedback">
+  <div *ngIf="fk.To.errors.required">To  is required</div>
+</div> -->
 </div>
 <div class="form-group">
 <label>Departure Date:
-<input type="datetime-local" name="DepartureDate" #DepartureDate="ngModel" placeholder="departureDate" [(ngModel)]="service.formdata.DepartureDate">
+<input type="datetime-local" name="DepartureDate" #DepartureDate="ngModel" placeholder="departureDate"
+ [(ngModel)]="service.formdata.DepartureDate"
+ />
+ <!-- <div *ngIf="isSubmitted && fk.DepartureDate.errors" class="invalid-feedback">
+  <div *ngIf="fk.DepartureDate.errors.required">Dep date  is required</div>
+</div> -->
 </label>
 <label>Return Date:
 <input type="datetime-local" name="ReturnDate" #ReturnDate="ngModel" placeholder="returnDate" [(ngModel)]="service.formdata.ReturnDate">

@@ -1,9 +1,42 @@
 <p>Login Page </p>
-<form #f="ngForm" (submit)="LoginSubmit(f.value)">
+<!-- <form #f="ngForm" (submit)="LoginSubmit(f.value)">
 
 <div>
     <input type="text" name="username"   placeholder="User" [(ngModel)]="service.formdata.username">
     <input type="text" name="password"  placeholder="XXXXXXX" [(ngModel)]="service.formdata.password">
     <input type="submit" value="Login">
 </div>
-</form>
+</form> -->
+<form form #f="ngForm"  (submit)="LoginSubmit(f.value)" novalidate autocomplete="off">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="text" name="username"   placeholder="User"
+       [(ngModel)]="service.formdata.username"  [ngModelOptions]="{standalone: true}"
+       class="form-control"  />
+       
+      
+      <label class="form-label" for="form2Example1">User Name:</label>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="text" name="password"  placeholder="XXXXXXX"
+       [(ngModel)]="service.formdata.password" class="form-control" [ngModelOptions]="{standalone: true}"
+    
+       />
+      
+      <label class="form-label" for="form2Example2">Password</label>
+    </div>
+     <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member?
+        <li role="presentation" routerLinkActive="active">
+            <a routerLink="/newuser">Click here for registration</a>
+        </li>     
+    
+    </div>
+  </form>
+
+

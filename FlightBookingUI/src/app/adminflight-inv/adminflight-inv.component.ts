@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AdminFlight } from '../Models/AdminFlight';
 
 import { AdminflightsService } from '../service/adminflights.service';
@@ -12,7 +13,7 @@ import { AdminflightsService } from '../service/adminflights.service';
 export class AdminflightInvComponent implements OnInit {
  
   
-  constructor(private adminflightservice:AdminflightsService) {
+  constructor(private adminflightservice:AdminflightsService,private toastr:ToastrService) {
 
    }
 
@@ -26,10 +27,13 @@ export class AdminflightInvComponent implements OnInit {
      );
     
   }
-  Block(data:any){
-     console.log("Blocking the Airline",data);
+  Block(FlightId:number){
+     console.log("Blocking the Airline",FlightId);
+     this.adminflightservice.Postblockflight(FlightId).subscribe(
+       result=>{
+        this.toastr.success("Airline ID:"+ FlightId + "has been Blocked");
+       }
+     )
    }
-   Modify(data:any){
-    console.log("Schdeule modification the Airline",data);
-   }
+  
 }

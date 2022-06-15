@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 import { Register } from '../Models/Register';
 import { UserFlightSearch } from '../Models/UserFlightSearch';
 import { UserflightsearchService } from '../service/userflightsearch.service';
@@ -11,11 +13,12 @@ import { UserflightsearchService } from '../service/userflightsearch.service';
 })
 export class UserflightsearchComponent implements OnInit {
 
-  constructor(public service:UserflightsearchService) { }
+  constructor(public service:UserflightsearchService,private _router:Router,private dataservice: DataService) { }
   userflightsearchlist:UserFlightSearch[]=[];
   ngOnInit(): void {
    
   }
+
   SearchUserFlight(f:NgForm){
          console.warn(" started Inside the search",f);
     this.service.postuserflightsearch().subscribe(
@@ -23,6 +26,12 @@ export class UserflightsearchComponent implements OnInit {
         console.warn("list of array",this.userflightsearchlist)
       }
     );
+  }
+  //flight.flightNo,flight.from,flight.to,flight.departureDa
+  Onclickbook(flightdeatils:any){
+    this.dataservice.changeName(flightdeatils);
+    this._router.navigate(["/ticket-booking"]);
+
   }
 
 }

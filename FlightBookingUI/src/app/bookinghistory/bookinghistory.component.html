@@ -1,0 +1,46 @@
+<p>bookinghistory works!</p>
+<form #f="ngForm"(submit)="SearchHistory(f.value)" >
+    <div class="mb-3"> 
+        <input type="text" name="email" #email="ngModel" placeholder="emailid" [(ngModel)]="service.email" >
+    </div>
+    <diV class="form-group">
+        <input type="submit" value="Search-History">
+    </diV>
+</form>
+
+<div class="container py-5">  
+    <h3 class="text-center text-uppercase">Booked history </h3>  
+    <table class="table table-bordered table-striped">  
+        <thead>  
+            <tr class="text-center text-uppercase">  
+                <th>PNR Number</th> 
+                <th>Flight Number</th>
+                <th>Email Id </th>
+                <th>Departure Date</th> 
+                <th>From</th>
+                <th>To </th> 
+                <th>No. of Seat</th> 
+                <th>IS optForMeal</th>                  
+                <th>Action</th>         
+              </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let flight of bookinghistorylist">  
+            <td>{{flight.pnrNo}}</td> 
+            <td>{{flight.flightNo}}</td> 
+            <td>{{flight.emailId}}</td> 
+            <td>{{flight.bookingDepartureDate}}</td> 
+            <td>{{flight.bookingFrom}}</td>    
+            <td>{{flight.bookingTo}}</td>
+            <td>{{flight.noOfSeat}}</td> 
+            <td>{{flight.optForMeal}}</td>              
+            <td>                
+                <button >Download Ticket</button> 
+                <button (click)="cancleTicket(flight.pnrNo)">Cancle</button>
+            </td>  
+           
+          </tr>  
+        </tbody>  
+      </table>  
+    </div> 
+

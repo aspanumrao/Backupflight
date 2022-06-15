@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Register } from '../Models/Register';
 import { RegisterService } from '../service/register.service';
 
@@ -12,8 +13,10 @@ import { RegisterService } from '../service/register.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public service:RegisterService) { }
-
+  constructor(public service:RegisterService,private toastr:ToastrService) { 
+    
+  }
+  
   ngOnInit():void {
 
   }
@@ -21,9 +24,11 @@ export class RegisterComponent implements OnInit {
   Register(f:NgForm){
     console.log("Inside the Register");
     this.service.postRegister().subscribe((result)=>{
-      console.warn(result);
+      // console.warn(result);
+      this.toastr.success("Airline has been Registerd");
     }
      
     );
   }
+
 }

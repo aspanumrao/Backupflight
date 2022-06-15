@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { DataService } from '../data.service';
 import { BookingFlight } from '../Models/BookingFlight';
 import { passenger } from '../Models/passenger';
 import { TicketbookingService } from '../service/ticketbooking.service';
@@ -10,8 +12,8 @@ import { TicketbookingService } from '../service/ticketbooking.service';
   styleUrls: ['./ticket-booking.component.css']
 })
 export class TicketBookingComponent implements OnInit {
-
-  constructor(public service:TicketbookingService) {
+   bookflightdata:any;
+  constructor(public service:TicketbookingService ,	private toastr:ToastrService,private dataservice: DataService) {
 
    }
   
@@ -32,16 +34,20 @@ export class TicketBookingComponent implements OnInit {
  }
  BookTicket(f:NgForm){
  
-   console.warn("BookTicket Started");
-   console.warn(f);
-   this.service.postBookingFlight().subscribe((result)=>{
-    console.warn(result);
-  }
-   
-  );
+   this.service.formdata.FlightNo=this.bookflightdata.flightNo;
+   this.service.formdata.BookingFrom=this.bookflightdata.from;
+   this.service.formdata.BookingTo=this.bookflightdata.to;
+   this.service.formdata.BookingDepartureDate=this.bookflightdata.departureDate;
+   this.service.formdata.BookingReturnDate=this.bookflightdata.returnDate;
+   this.service.postBookingFlight().subscribe((result)=>
+   { 
+    this.toastr.success("your ticket  has been booked ");
+    
+    });
      
  }
   ngOnInit(): void {
+    this.dataservice.book.subscribe(result=>{this.bookflightdata=result;console.warn("data service",result) });
   }
  
  

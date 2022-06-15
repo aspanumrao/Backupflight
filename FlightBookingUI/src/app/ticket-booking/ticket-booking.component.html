@@ -1,7 +1,7 @@
 <p>ticket-booking works!</p>
 <form #f="ngForm" (submit)="BookTicket(f.value)" >
  <div class="form-row">
-    <input type="text" name="FlightNo" #FlightNo="ngModel" placeholder="flightnumber" [(ngModel)]="service.formdata.FlightNo">
+    <input type="text" name="FlightNo"  #FlightNo="ngModel" placeholder="flight number" [(ngModel)]="bookflightdata.flightNo">
      <input type="text" name="EmailId" #EmailId="ngModel" placeholder="Email" [(ngModel)]="service.formdata.EmailId">
   </div>
   <div class="form-row">  
@@ -9,12 +9,12 @@
       <input type="text" name="NoOfSeat" #NoOfSeat="ngModel" placeholder="number of seat" [(ngModel)]="service.formdata.NoOfSeat">
   </div>
   <div class="form-row">  
-    <input type="text" name="BookingFrom" #BookingFrom="ngModel" placeholder="From" [(ngModel)]="service.formdata.BookingFrom">
-    <input type="text" name="BookingTo" #BookingTo="ngModel" placeholder="To" [(ngModel)]="service.formdata.BookingTo">
+    <input type="text" name="BookingFrom" #BookingFrom="ngModel" placeholder="from" [(ngModel)]="bookflightdata.from">
+    <input type="text" name="BookingTo" #BookingTo="ngModel" placeholder="to" [(ngModel)]="bookflightdata.to">
    </div>
    <div class="form-row">  
-    <input type="datetime-local" name="BookingDepartureDate" #BookingDepartureDate="ngModel" placeholder="Dep date" [(ngModel)]="service.formdata.BookingDepartureDate">
-    <input type="datetime-local" name="BookingReturnDate" #BookingReturnDate="ngModel" placeholder="return date" [(ngModel)]="service.formdata.BookingReturnDate">
+    <input type="datetime-local" name="BookingDepartureDate" #BookingDepartureDate="ngModel" placeholder="Dep date" [(ngModel)]="bookflightdata.departureDate">
+    <input type="datetime-local" name="BookingReturnDate" #BookingReturnDate="ngModel" placeholder="return date" [(ngModel)]="bookflightdata.returnDate">
    </div>
    <table class="table table-striped table-bordered">
     <thead>

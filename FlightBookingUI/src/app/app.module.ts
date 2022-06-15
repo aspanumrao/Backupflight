@@ -9,6 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminflightInvComponent } from './adminflight-inv/adminflight-inv.component';
 import { UserflightsearchComponent } from './userflightsearch/userflightsearch.component';
 import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
+import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserdashComponent } from './userdash/userdash.component';
+import { NewuserComponent } from './newuser/newuser.component';
+import { AdmindashComponent } from './admindash/admindash.component';
+
 
 
 @NgModule({
@@ -19,6 +26,10 @@ import { TicketBookingComponent } from './ticket-booking/ticket-booking.componen
     AdminflightInvComponent,
     UserflightsearchComponent,
     TicketBookingComponent,
+    BookinghistoryComponent,
+    UserdashComponent,
+    NewuserComponent,
+    AdmindashComponent,
 
   ],
   imports: [
@@ -26,7 +37,10 @@ import { TicketBookingComponent } from './ticket-booking/ticket-booking.componen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

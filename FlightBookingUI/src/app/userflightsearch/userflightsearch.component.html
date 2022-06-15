@@ -37,19 +37,27 @@
         <thead>  
             <tr class="text-center text-uppercase">  
                 <th>FlightNo</th>  
-                <th>FlightLogo</th>  
+                <th>FlightLogo</th> 
+                <th>Depature Date</th> 
+                <th>Return Date</th> 
                 <th>From</th> 
-                <th>To</th> 
+                <th>To</th>
+                <th>Price</th>  
+                <th>Available seat</th>  
                 <th>Action</th>              
               </tr>  
         </thead>  
         <tbody>  
           <tr *ngFor="let flight of userflightsearchlist">  
             <td>{{flight.flightNo}}</td>  
-            <td>{{flight.flightLogo}}</td>  
+            <td>{{flight.flightLogo}}</td> 
+            <td>{{flight.departureDate}}</td> 
+            <td>{{flight.returnDate}}</td>    
             <td>{{flight.from}}</td> 
             <td>{{flight.to}}</td> 
-            <td><button >Book</button></td>  
+            <td>{{flight.price}}</td> 
+            <td>{{flight.availableSheet}}</td>
+            <td><button (click)="Onclickbook(flight)" >Book</button></td>  
            
           </tr>  
         </tbody>  
