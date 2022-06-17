@@ -11,5 +11,6 @@ namespace Flight.Service.InventoryAPI.InvRepository
         void RegisterInventory(FlightSearchTbl flightSearchTbl);
         void BlockAirline(int id);
         FlightSearchTbl ManageSchedule(FlightSearchTbl alterflighttblobj);
+        IEnumerable<FlightSearchTbl> GetAllFlight();
     }
 }

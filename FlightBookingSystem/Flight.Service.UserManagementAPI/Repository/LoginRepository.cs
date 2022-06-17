@@ -37,15 +37,15 @@ namespace Flight.Service.UserManagementAPI.Repository
             _logonuserdbcontext.userRoleTbls.Add(userRoleTbl);
             _logonuserdbcontext.SaveChanges();
         }
-        public string AuthenticationUser(LoginTbl loginTbl)
+        public bool AuthenticationUser(LoginTbl loginTbl)
         {
             if (!_logonuserdbcontext.loginTbls.Where(a => a.username == loginTbl.username && a.password == loginTbl.password).Any())
             {
-                return null;
+                return false;
             }
             
-
-            return "success";
+            // Guid guid=_logonuserdbcontext
+            return true;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Flight.Service.FlightSearchAPI.DBContext;
 using Flight.Service.FlightSearchAPI.Model;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,13 @@ namespace Flight.Service.FlightSearchAPI.Repository
         public IEnumerable<FlightSearchTbl> FlightSearch(FlightSearchTbl searchcritera)
         {
             List<FlightSearchTbl> objflightlist = new List<FlightSearchTbl>();
-
             //var availableflights = flightcontext.flightSearchTbls.Where(x => x.From == searchcritera.From && x.To == searchcritera.To)
             //    .Select(x => new { x.FlightNo, x.FlightLogo, x.Price }).ToList();
-            
 
+       
             var  availableflights = (from res in flightcontext.flightSearchTbls
                                     where (res.From == searchcritera.From && res.To == searchcritera.To && res.IsFlightBlock==false)
-                                    select new { res.From, res.To, res.FlightLogo, res.Price, res.FlightNo }
+                                    select new { res.From, res.To, res.FlightLogo, res.Price, res.FlightNo,res.DepartureDate,res.ReturnDate,res.AvailableSheet }
                                        ) ;
 
 
@@ -40,6 +40,9 @@ namespace Flight.Service.FlightSearchAPI.Repository
                 objflight.FlightLogo = item.FlightLogo;               
                 objflight.Price = item.Price;
                 objflight.FlightNo = item.FlightNo;
+                objflight.DepartureDate = item.DepartureDate;
+                objflight.ReturnDate = item.ReturnDate;
+                objflight.AvailableSheet = item.AvailableSheet;
 
                 objflightlist.Add(objflight);
             }
@@ -48,5 +51,7 @@ namespace Flight.Service.FlightSearchAPI.Repository
             return objflightlist;
         }
         // end 
+
+        
     }
 }

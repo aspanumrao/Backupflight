@@ -35,6 +35,7 @@ namespace Flight.Service.UserManagementAPI
             services.AddTransient<ILoginRepository, LoginRepository>();
 
             services.AddMvc();
+           
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -53,13 +54,19 @@ namespace Flight.Service.UserManagementAPI
                     ValidAudience = _configuration["JWT:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
-            });                    
+            });
 
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(Options =>
+              Options.WithOrigins("http://localhost:4500")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              );
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

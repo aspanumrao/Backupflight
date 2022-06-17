@@ -44,6 +44,11 @@ namespace Flight.Service.InventoryAPI.InvRepository
 
             return alterobjflightsearch;
         }
+
+        public IEnumerable<FlightSearchTbl> GetAllFlight()
+        {
+            return flightSearchDbContext.flightSearchTbls.Where(a=>a.IsFlightBlock==false);
+        }
         //end 
     }
 }

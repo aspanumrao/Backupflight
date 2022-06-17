@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,7 @@ namespace Flight.Service.FlightSearchAPI
     {
         public static void Main(string[] args)
         {
+          
             CreateWebHostBuilder(args).Build().Run();
         }
 

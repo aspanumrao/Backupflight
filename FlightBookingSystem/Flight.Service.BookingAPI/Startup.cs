@@ -31,12 +31,18 @@ namespace Flight.Service.BookingAPI
                 options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingDBConnection")));
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddMvc();
-      
+            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(Options =>
+              Options.WithOrigins("http://localhost:4500")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              );
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

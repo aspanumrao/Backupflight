@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 import { BookingFlight } from '../Models/BookingFlight';
@@ -13,7 +14,7 @@ import { TicketbookingService } from '../service/ticketbooking.service';
 })
 export class TicketBookingComponent implements OnInit {
    bookflightdata:any;
-  constructor(public service:TicketbookingService ,	private toastr:ToastrService,private dataservice: DataService) {
+  constructor(public service:TicketbookingService ,	private toastr:ToastrService,private dataservice: DataService,private _router:Router) {
 
    }
   
@@ -42,7 +43,7 @@ export class TicketBookingComponent implements OnInit {
    this.service.postBookingFlight().subscribe((result)=>
    { 
     this.toastr.success("your ticket  has been booked ");
-    
+    this._router.navigate(["/userdash"]);
     });
      
  }

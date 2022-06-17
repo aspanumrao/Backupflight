@@ -1,5 +1,6 @@
 ﻿using Flight.Service.BookingAPI.DBContext;
 using Flight.Service.BookingAPI.Model;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Flight.Service.BookingAPI.Repository
 
     {
         private readonly BookingDbContext bookingDbContext;
+       
         private static Random random = new Random();
         public BookingRepository(BookingDbContext bookingdbcon)
         {
@@ -25,7 +27,9 @@ namespace Flight.Service.BookingAPI.Repository
             bookingDbContext.SaveChanges();
             int bookingid = bookingObj.BookId;
             
-           // return bookingid;
+
+            // return bookingid;
+            //QueuePro(bookingObj);
         }
 
        
@@ -37,7 +41,7 @@ namespace Flight.Service.BookingAPI.Repository
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        public string TicketCancellation(string pnrnumber)
+        public void  TicketCancellation(string pnrnumber)
         {
 
             if (pnrnumber != null)
@@ -50,12 +54,12 @@ namespace Flight.Service.BookingAPI.Repository
                     {
                         objbooking.IsPNRNoActive = false;
                         bookingDbContext.SaveChanges();
-                        return "Ticket has been Cancelled :" + pnrnumber;
+                       // return "Ticket has been Cancelled :" + pnrnumber;
                     }
                 }
-                return "Please Provide the correct  pnrno";
+                //return "Please Provide the correct  pnrno";
             }
-            return "Please Provide the pnrno";
+           // return "Please Provide the pnrno";
         }
 
         public IEnumerable<BookingTbl> BookingHistory(string email)
@@ -64,9 +68,10 @@ namespace Flight.Service.BookingAPI.Repository
             
            if (email != null)
             {
+              
                 var availableflights = (from res in bookingDbContext.bookingTbls
-                                        where (res.EmailId == email)
-                                        select new { res.FlightNo, res.PNRNo, res.BookingDepartureDate, res.BookingFrom }
+                                        where (res.EmailId == email &&res.IsPNRNoActive==true)
+                                        select new { res.FlightNo, res.PNRNo, res.BookingDepartureDate, res.BookingFrom,res.NoOfSeat,res.OptForMeal }
                                     );
                 foreach (var item in availableflights)
                 {
@@ -75,10 +80,24 @@ namespace Flight.Service.BookingAPI.Repository
                     objtbl.PNRNo = item.PNRNo;
                     objtbl.BookingDepartureDate = item.BookingDepartureDate;
                     objtbl.BookingFrom = item.BookingFrom;
+                    objtbl.NoOfSeat = item.NoOfSeat;
+                    objtbl.OptForMeal = item.OptForMeal;
                     objlistbooking.Add(objtbl);
                 }
             }
             return objlistbooking;
+        }
+
+        static void QueuePro(BookingTbl bookingdata)
+        {
+            
+            var factory = new ConnectionFactory
+            {
+                Uri = new Uri("amqp://guest:guest@localhost:5672")
+            };
+            var conn = factory.CreateConnection();
+            var chan = conn.CreateModel();
+            QueueProducer.Publish(chan, bookingdata);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Flight.Service.UserManagementAPI.Controllers
         {
             return new string[] { "Username", "Password" };
         }
-
+        [auth.AllowAnonymous]
         [HttpPost]
         [Route("new")]
         public void NewUserRegistration([FromBody] LoginTbl loginTbl)
@@ -61,10 +61,10 @@ namespace Flight.Service.UserManagementAPI.Controllers
         {
            
            IActionResult response = Unauthorized();
-          var token=  _ILoginRepository.AuthenticationUser(loginTbl);
-            if (token == null)
+          bool token=  _ILoginRepository.AuthenticationUser(loginTbl);
+            if (!token)
             {
-                return Unauthorized();
+                response = Ok(new { token });
             }
             else
             {

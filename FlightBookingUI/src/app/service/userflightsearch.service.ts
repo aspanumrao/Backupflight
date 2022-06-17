@@ -7,6 +7,7 @@ import { Register } from '../Models/Register';
 })
 export class UserflightsearchService {
   readonly baseUrl="http://localhost:5000/allflight";
+  //readonly baseUrl="https://flightserviceflightsearchapi20220615145129.azurewebsites.net/api/flightsearch";
   constructor(private http:HttpClient) { }
   formdata:Register=new Register(); 
   postuserflightsearch(){

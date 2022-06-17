@@ -9,19 +9,19 @@
       "UpstreamHttpMethod": [ "Post" ]
     },
     {
-      "DownstreamPathTemplate": "/api/booking/cancelled",
+      "DownstreamPathTemplate": "/api/booking/cancelled/{pnrno}",
       "DownstreamScheme": "http",
       "DownstreamHost": "localhost",
       "DownstreamPort": 5001,
-      "UpstreamPathTemplate": "/cancelledticket",
+      "UpstreamPathTemplate": "/cancelledticket/{pnrno}",
       "UpstreamHttpMethod": [ "Post" ]
     },
     {
-      "DownstreamPathTemplate": "/api/booking/history",
+      "DownstreamPathTemplate": "/api/booking/history/{email}",
       "DownstreamScheme": "http",
       "DownstreamHost": "localhost",
       "DownstreamPort": 5001,
-      "UpstreamPathTemplate": "/allbookedticket",
+      "UpstreamPathTemplate": "/allbookedticket/{email}",
       "UpstreamHttpMethod": [ "Post" ]
     },
     {
@@ -46,8 +46,16 @@
       "DownstreamScheme": "http",
       "DownstreamPort": 5003,
       "DownstreamHost": "localhost",
-      "UpstreamPathTemplate": "/airlinelock/{id}",
+      "UpstreamPathTemplate": "/airlineblock/{id}",
       "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/inventory/getallactiveflight",
+      "DownstreamScheme": "http",
+      "DownstreamPort": 5003,
+      "DownstreamHost": "localhost",
+      "UpstreamPathTemplate": "/getall",
+      "UpstreamHttpMethod": [ "Get" ]
     },
     {
       "DownstreamPathTemplate": "/api/userlogin/login",

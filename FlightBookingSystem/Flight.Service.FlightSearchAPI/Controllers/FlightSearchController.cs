@@ -1,6 +1,7 @@
 ﻿using Flight.Service.FlightSearchAPI.Model;
 using Flight.Service.FlightSearchAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,20 @@ namespace Flight.Service.FlightSearchAPI.Controllers
 
             _searchRepository= _searchRepos;
         }
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+          //  var factory = new ConnectionFactory
+          //  {
+          //      Uri = new Uri("amqp://guest:guest@localhost:5672")
+          //  };
+          //  var conn = factory.CreateConnection();
+          //  var channel = conn.CreateModel();
+          //var results =  QueueConsumer.Consume(channel);
+            return new string[] { "FlightSearchController", "FlightSearchController" };
+        }
         // GET api/values
-       [HttpPost]
+        [HttpPost]
         [Route("flightsearch")]
         public IEnumerable<FlightSearchTbl> FlightSearch([FromBody] FlightSearchTbl flightsearch)
         {

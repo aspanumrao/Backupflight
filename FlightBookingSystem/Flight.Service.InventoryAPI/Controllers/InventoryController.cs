@@ -19,9 +19,14 @@ namespace Flight.Service.InventoryAPI.Controllers
         {
             this._invRepository = invRepository;
         }
-        
+        [HttpGet]
+        [Route("getallactiveflight")]
+        public IEnumerable<FlightSearchTbl> GetAllActiveFlight()
+        {
+            return _invRepository.GetAllFlight();
+        }
   
-        // GET api/values
+     
         [HttpPost]
         [Route("flightregistration")]
         public void AddedNewFlight([FromBody] FlightSearchTbl flightSearchTbl)

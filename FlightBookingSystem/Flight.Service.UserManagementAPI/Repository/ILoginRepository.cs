@@ -10,6 +10,6 @@ namespace Flight.Service.UserManagementAPI.Repository
     {
         void RegisterUser(LoginTbl loginTbl);
         void RoleAssignment(UserRoleTbl userRoleTbl);
-        string AuthenticationUser(LoginTbl loginTbl);
+        bool AuthenticationUser(LoginTbl loginTbl);
     }
 }

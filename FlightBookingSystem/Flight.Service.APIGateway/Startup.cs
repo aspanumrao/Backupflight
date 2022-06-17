@@ -43,12 +43,18 @@ namespace Flight.Service.APIGateway
             };
             services.AddOcelot((IConfigurationRoot)Configuration, settings);
             services.AddMvc();
+            services.AddCors();
             //end 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public async void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(Options =>
+              Options.WithOrigins("http://localhost:4500")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              );
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
