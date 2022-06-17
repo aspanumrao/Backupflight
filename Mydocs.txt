@@ -1,6 +1,33 @@
 docker run -d --hostname my-rabbit --name ecom-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 
 
+
+
+
+
+
+
+
+
+
+*****************Booking input for postman***************
+
+{
+"FlightNo":"6DE1000",
+"PNRNo":"",
+"IsPNRNoActive":"true",
+"EmailId":"umrao@gmail.com",
+"OptForMeal":"yes",
+"NoOfSeat":"3",
+"BookingFrom":"kolkata",
+"BookingTo":"Delhi",
+"BookingDepartureDate":"02-06-2022",
+"listpassengers":[{ "PassengerFirstName":"aarvi","SeatNumber":"10","Age":"22" }
+,{"PassengerFirstName": "nishat","SeatNumber":"11","Age":"56"},
+{"PassengerFirstName": "depepep","SeatNumber":"12","Age":"32"}]
+}
+
+******************************************************************************
   
 
  
